@@ -4,6 +4,9 @@ const dotenv = require("dotenv");
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const resumeRoutes = require(
+  "./routes/resumeRoutes"
+);
 
 dotenv.config();
 
@@ -17,6 +20,7 @@ app.use(
   "/api/auth",
   authRoutes
 );
+app.use("/api/resume", resumeRoutes);
 
 app.get("/", (req, res) => {
   res.send("AI Resume Analyzer API Running");
