@@ -1,14 +1,15 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
-
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const resumeRoutes = require(
   "./routes/resumeRoutes"
 );
+const analysisRoutes = require("./routes/analysisRoutes");
 
-dotenv.config();
+
 
 connectDB();
 
@@ -21,6 +22,8 @@ app.use(
   authRoutes
 );
 app.use("/api/resume", resumeRoutes);
+app.use("/api/analysis", analysisRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("AI Resume Analyzer API Running");
