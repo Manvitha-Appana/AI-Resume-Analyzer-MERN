@@ -5,7 +5,7 @@ const analysisSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      default: null,
     },
 
     resumeId: {
@@ -18,6 +18,11 @@ const analysisSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    experienceLevel: {
+  type: String,
+  required: true,
+  default: "Fresher",
+},
 
    scores: {
   overall: {
@@ -49,6 +54,10 @@ const analysisSchema = new mongoose.Schema(
     type: Number,
     default: 0,
   },
+},
+resumeSummary: {
+  type: String,
+  default: "",
 },
 
     strengths: [

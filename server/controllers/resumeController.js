@@ -33,7 +33,26 @@ const uploadResume = async (req, res) => {
     });
   }
 };
+const getUserResumes = async (req, res) => {
+  try {
+    const resumes = await Resume.find()
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      resumes,
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 module.exports = {
   uploadResume,
+  getUserResumes,
 };

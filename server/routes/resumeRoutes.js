@@ -7,7 +7,8 @@ const upload = require(
 );
 
 const {
-  uploadResume,
+  uploadResume, 
+  getUserResumes,
 } = require(
   "../controllers/resumeController"
 );
@@ -16,6 +17,10 @@ router.post(
   "/upload",
   upload.single("resume"),
   uploadResume
+);
+router.get(
+  "/",
+  getUserResumes
 );
 
 module.exports = router;
