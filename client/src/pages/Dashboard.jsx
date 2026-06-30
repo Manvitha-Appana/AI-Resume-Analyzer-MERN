@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Dashboard.css";
+import { FaBrain } from "react-icons/fa";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -49,21 +51,29 @@ function Dashboard() {
   };
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+  <div className="dashboard-container">
+    <div className="dashboard-card">
+      <div className="page-logo">
+              <FaBrain className="brain-icon" />
+            <span>AI Resume Analyzer</span>
+          </div>
+      <h1>Resume Analysis Dashboard</h1>
+
+      <p>
+        Select your target role and experience
+        level to receive personalized AI-powered
+        resume feedback.
+      </p>
 
       <form onSubmit={handleAnalyze}>
         <input
           type="text"
-          placeholder="Target Role"
+          placeholder="Target Role (Example: Data Analyst)"
           value={targetRole}
           onChange={(e) =>
             setTargetRole(e.target.value)
           }
         />
-
-        <br />
-        <br />
 
         <select
           value={experienceLevel}
@@ -94,15 +104,13 @@ function Dashboard() {
           </option>
         </select>
 
-        <br />
-        <br />
-
         <button type="submit">
           Analyze Resume
         </button>
       </form>
     </div>
-  );
+  </div>
+);
 }
 
 export default Dashboard;

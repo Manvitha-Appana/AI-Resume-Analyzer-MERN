@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate , Link } from "react-router-dom";
+import "./Login.css";
+import { FaBrain } from "react-icons/fa";
+
 
 function Login() {
   const navigate = useNavigate();
@@ -49,7 +52,13 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
+    
+  <div className="login-container">
+    <div className="login-card">
+      <div className="page-logo">
+  <FaBrain className="brain-icon" />
+  <span>AI Resume Analyzer</span>
+</div>
       <h1>Login</h1>
 
       <form onSubmit={handleSubmit}>
@@ -61,9 +70,6 @@ function Login() {
           onChange={handleChange}
         />
 
-        <br />
-        <br />
-
         <input
           type="password"
           name="password"
@@ -72,21 +78,20 @@ function Login() {
           onChange={handleChange}
         />
 
-        <br />
-        <br />
-
         <button type="submit">
           Login
         </button>
       </form>
-      <p>
+
+      <p className="register-link">
         Don't have an account?{" "}
         <Link to="/register">
           Register
         </Link>
       </p>
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;

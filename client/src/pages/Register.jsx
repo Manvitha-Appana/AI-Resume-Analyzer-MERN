@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "./Register.css";
+import { FaBrain } from "react-icons/fa";
 
 function Register() {
    const navigate = useNavigate();
@@ -38,8 +40,13 @@ function Register() {
   }
 };
   return (
-    <div className="register-container">
-      <h1>Register</h1>
+  <div className="register-container">
+    <div className="register-card">
+      <div className="page-logo">
+  <FaBrain className="brain-icon" />
+  <span>AI Resume Analyzer</span>
+</div>
+      <h1>Create Account</h1>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -70,8 +77,16 @@ function Register() {
           Register
         </button>
       </form>
+
+      <p className="login-link">
+        Already have an account?{" "}
+        <Link to="/login">
+          Login
+        </Link>
+      </p>
     </div>
-  );
+  </div>
+);
 }
 
 export default Register;

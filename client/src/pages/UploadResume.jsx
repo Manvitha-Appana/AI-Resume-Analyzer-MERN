@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./UploadResume.css";
+import { FaBrain } from "react-icons/fa";
 
 function UploadResume() {
   const [file, setFile] = useState(null);
@@ -37,8 +39,20 @@ navigate("/dashboard");
   };
 
   return (
-    <div>
+  <div className="upload-container">
+    <div className="upload-card">
+      <div className="page-logo">
+  <FaBrain className="brain-icon" />
+  <span>AI Resume Analyzer</span>
+</div>
       <h1>Upload Resume</h1>
+
+      <p>
+        Upload your resume in PDF format and
+        get AI-powered ATS analysis,
+        missing skills detection, and
+        interview preparation suggestions.
+      </p>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -49,12 +63,19 @@ navigate("/dashboard");
           }
         />
 
+        {file && (
+          <p className="selected-file">
+            Selected File: {file.name}
+          </p>
+        )}
+
         <button type="submit">
-          Upload
+          Upload Resume
         </button>
       </form>
     </div>
-  );
+  </div>
+);
 }
 
 export default UploadResume;
