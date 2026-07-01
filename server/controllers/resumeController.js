@@ -13,9 +13,13 @@ const uploadResume = async (req, res) => {
     const pdfData = await pdfParse(
       pdfBuffer
     );
+    const user = JSON.parse(
+      req.body.user
+    );
 
     const resume = await Resume.create({
-      fileName: req.file.filename,
+      userId: user.id,
+      fileName: req.file.originalname,
       filePath: req.file.path,
       extractedText: pdfData.text,
     });

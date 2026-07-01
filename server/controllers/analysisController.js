@@ -92,7 +92,37 @@ return res.status(201).json({
   }
 };
 
+const getAnalysisHistory = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    
+
+    const history = await Analysis.find({
+      userId,
+    })
+    .populate(
+        "resumeId",
+        "fileName"
+          )
+    .sort({
+      createdAt: -1,
+    });
+    
+    res.status(200).json({
+      success: true,
+      history,
+    });
+    
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 module.exports = {
   testConnection,
   analyzeResumeController,
+  getAnalysisHistory,
 };

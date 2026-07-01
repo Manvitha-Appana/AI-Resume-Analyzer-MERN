@@ -12,8 +12,15 @@ function UploadResume() {
     e.preventDefault();
 
     const formData = new FormData();
+        formData.append("resume", file);
+    const user = JSON.parse(
+  localStorage.getItem("user")
+);
 
-    formData.append("resume", file);
+    formData.append(
+  "user",
+  JSON.stringify(user)
+);
 
     try {
       const res = await axios.post(
@@ -27,10 +34,10 @@ function UploadResume() {
   res.data.resume._id
 );
 
-console.log(
-  "Resume ID:",
-  res.data.resume._id
-);
+// console.log(
+//   "Resume ID:",
+//   res.data.resume._id
+// );
 navigate("/dashboard");
     } catch (error) {
       console.log(error);

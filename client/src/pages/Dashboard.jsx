@@ -29,7 +29,7 @@ function Dashboard() {
 
       alert("Analysis Completed!");
 
-      console.log(response.data);
+      //console.log(response.data);
 
       localStorage.setItem(
         "analysisId",

@@ -141,15 +141,17 @@ body {
   color: transparent;
 }
 
-.page-logo {
+
+ .page-logo {
+  position: absolute;
+  top: 40px;
+  left: 230px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
 
-  margin-bottom: 25px;
-
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
 
   background: linear-gradient(
@@ -160,12 +162,19 @@ body {
 
   -webkit-background-clip: text;
   color: transparent;
+
+  z-index: 1000;
 }
+  
+
+  
+
 
 .brain-icon {
-  color: #2563eb;
+ color: #2563eb;
+  font-size: 30px;
 }
-.project-logo {
+/* .project-logo {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -175,4 +184,4 @@ body {
   font-size: 24px;
   font-weight: 700;
   color: #2563eb;
-}
+} */

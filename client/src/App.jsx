@@ -6,6 +6,7 @@ import {
 
 import ProtectedRoute from "./components/ProtectedRoute";
 //import Navbar from "./components/Navbar";
+import History from "./pages/History";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <>
-      {!hideNavbar && <Navbar />}
+      {/* {!hideNavbar && <Navbar />} */}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -60,6 +61,14 @@ function App() {
           element={
             <ProtectedRoute>
               <AnalysisResult />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <ProtectedRoute>
+                <History />
             </ProtectedRoute>
           }
         />

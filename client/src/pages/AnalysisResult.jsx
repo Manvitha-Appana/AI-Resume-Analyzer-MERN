@@ -149,7 +149,11 @@ function AnalysisResult() {
       >
         Dashboard
       </button>
-
+      <button
+        onClick={() => navigate("/history")}
+      >
+        Analysis History
+      </button>
       <button onClick={handleLogout}>
         Logout
       </button>

@@ -20,3 +20,5 @@ client/dist
 
 # VS Code
 .vscode
+# Uploaded Resumes
+uploads/
