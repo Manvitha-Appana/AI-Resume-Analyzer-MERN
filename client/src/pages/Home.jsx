@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import { FaBrain } from "react-icons/fa";
 
+
 function Home() {
   return (
     <div className="home-container">

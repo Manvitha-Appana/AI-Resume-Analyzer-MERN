@@ -7,6 +7,7 @@ import "./History.css";
 function History() {
   const [history, setHistory] = useState([]);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -16,7 +17,7 @@ function History() {
         );
 
         const response = await axios.get(
-          `http://localhost:5000/api/analysis/history/${user.id}`
+          `${API_URL}/api/analysis/history/${user.id}`
         );
         // console.log(
         //   "History data:",

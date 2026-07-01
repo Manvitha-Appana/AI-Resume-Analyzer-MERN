@@ -6,6 +6,7 @@ import { FaBrain } from "react-icons/fa";
 
 function Dashboard() {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [targetRole, setTargetRole] = useState("");
   const [experienceLevel, setExperienceLevel] =
@@ -19,7 +20,7 @@ function Dashboard() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/analysis/analyze",
+        `${API_URL}/api/analysis/analyze`,
         {
           resumeId,
           targetRole,

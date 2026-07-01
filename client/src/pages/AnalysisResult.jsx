@@ -5,6 +5,7 @@ import { FaBrain } from "react-icons/fa";
 
 function AnalysisResult() {
   const navigate = useNavigate();
+ 
   const [analysis, setAnalysis] = useState(null);
 
   useEffect(() => {

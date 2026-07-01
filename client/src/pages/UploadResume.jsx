@@ -7,6 +7,7 @@ import { FaBrain } from "react-icons/fa";
 function UploadResume() {
   const [file, setFile] = useState(null);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ function UploadResume() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/resume/upload",
+        `${API_URL}/api/resume/upload`,
         formData
       );
 

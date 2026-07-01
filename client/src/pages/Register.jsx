@@ -6,6 +6,7 @@ import { FaBrain } from "react-icons/fa";
 
 function Register() {
    const navigate = useNavigate();
+   const API_URL = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +25,7 @@ function Register() {
 
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/register",
+      `${API_URL}/api/auth/register`,
       formData
     );
 
